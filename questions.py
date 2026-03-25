@@ -43,7 +43,7 @@ for word in shuffled_words:
         # Verificar si el jugador ya adivinó la palabra completa
         if "_" not in progress:
             print("¡Ganaste!")
-            score += 6
+            score += 6 # Suma 6 puntos por adivinar la palabra
             break
 
         print(f"Intentos restantes: {attempts}")
@@ -64,12 +64,12 @@ for word in shuffled_words:
         else:
             guessed.append(letter)
             attempts -= 1
-            score -= 1
+            score -= 1 # Resta un punto por cada intento fallido
             print("Esa letra no está en la palabra.")
 
         print()
     else:
         print(f"¡Perdiste! La palabra era: {word}")
-        score = 0
+        score = 0 # Deja la puntuación en 0 si el jugador pierde
 
     print(f"Tu puntuación final es: {score}")
