@@ -19,7 +19,7 @@ print("¡Bienvenido al Ahorcado!")
 print()
 
 while attempts > 0:
-    # Mostrar progreso
+    # Mostrar progreso: letras adivinadas y guiones para las que faltan
     progress = ""
     for letter in word:
         if letter in guessed:
@@ -28,7 +28,7 @@ while attempts > 0:
             progress += "_ "
     print(progress)
 
-    # Verificar si ganó
+    # Verificar si el jugador ya adivinó la palabra completa
     if "_" not in progress:
         print("¡Ganaste!")
         break
@@ -37,6 +37,11 @@ while attempts > 0:
     print(f"Letras usadas: {', '.join(guessed)}")
 
     letter = input("Ingresá una letra: ")
+
+    if len(letter) != 1 or not letter.isalpha():
+        print("Entrada no válida")
+        print()
+        continue
 
     if letter in guessed:
         print("Ya usaste esa letra.")
